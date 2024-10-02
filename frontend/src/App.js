@@ -1,6 +1,6 @@
 import "./App.css";
 import HomePage from "./pages/Home/HomePage";
-import Header from "./Header/Header";
+import Header from "./components/Header/Header";
 import {
   Outlet,
   // Link,
