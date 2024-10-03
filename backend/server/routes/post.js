@@ -38,7 +38,7 @@ router.get("/post/:id", (req, res) => {
 
   let post = posts.find((p) => p.id == id);
 
-  post = {...post,user: users.find((u) => u.id === post.userId)}
+  post = { ...post, user: users.find((u) => u.id === post.userId) };
 
   if (post) {
     res.json(post);

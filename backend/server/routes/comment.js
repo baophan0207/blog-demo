@@ -29,7 +29,6 @@ router.get("/comments/:postId/:page", (req, res) => {
 
   if (page > pageCount) page = pageCount;
 
-
   if (postComments) {
     res.json({
       page: page,

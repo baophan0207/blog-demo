@@ -9,6 +9,9 @@ import {
   // useNavigation,
 } from "react-router-dom";
 import PostDetail from "./pages/Post/PostDetail";
+import { AuthProvider } from "./contexts/auth/AuthContext";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +22,25 @@ const router = createBrowserRouter([
       {
         path: "/post/:id",
         // lazy: () => import("./pages/Post/PostDetail"),
-        element: <PostDetail/>,
+        element: <PostDetail />,
       },
     ],
+  },
+  {
+    path: "/signin",
+    element: <SignIn />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 
 function App() {
   return (
-    <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    <AuthProvider>
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    </AuthProvider>
   );
 }
 

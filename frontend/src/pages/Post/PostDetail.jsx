@@ -44,16 +44,16 @@ const PostDetail = () => {
     return () => {
       ignore = true;
     };
-  }, [page]);
+  }, [page, postId.id]);
 
   const handleShowMoreComments = () => {
     if (page >= comments.pageCount) return;
     setPage((page) => page + 1);
   };
 
-  const handleShowLessComments= ()=>{
-    setPage((page) => page = 1);
-  }
+  const handleShowLessComments = () => {
+    setPage((page) => (page = 1));
+  };
 
   return (
     <Box sx={{ padding: "0 4vw" }}>
@@ -120,11 +120,15 @@ const PostDetail = () => {
                     comments.page === comments.pageCount ? "none" : "block"
                   }
                   variant="outlined"
-                  onClick={comments.page === comments.pageCount ? handleShowLessComments : handleShowMoreComments}
-                >
-                  {
-                    comments.page === comments.pageCount ? "Show less":"Show more"
+                  onClick={
+                    comments.page === comments.pageCount
+                      ? handleShowLessComments
+                      : handleShowMoreComments
                   }
+                >
+                  {comments.page === comments.pageCount
+                    ? "Show less"
+                    : "Show more"}
                 </Button>
               </Box>
             </Card>
